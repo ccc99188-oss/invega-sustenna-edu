@@ -109,6 +109,26 @@ select,input[type="date"]{font:inherit;font-size:1rem;padding:8px 12px;border-ra
 ul.life{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
 .note{border-left:4px solid var(--warm);padding:4px 0 4px 14px;font-size:1rem}
 
+/* 體重：換藥不是加藥 */
+.swap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.slot{background:var(--bg);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.slot .when{font-size:.85rem;color:var(--muted);font-weight:700;letter-spacing:.04em}
+.med{display:flex;align-items:center;gap:8px;font-size:.95rem;padding:8px 10px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+.med .dot{width:14px;height:14px;border-radius:50%;flex:none}
+.med.ap .dot{background:var(--warm)}
+.med.other .dot{background:var(--muted)}
+.med.inj{border:2px solid var(--accent);color:var(--accent);font-weight:700}
+.med.inj .dot{background:var(--accent)}
+.med.gone{text-decoration:line-through;opacity:.45}
+.wtool{display:flex;flex-direction:column;gap:12px;background:var(--bg);border-radius:14px;padding:16px}
+.wtool .row label{display:flex;flex-direction:column;gap:4px;font-size:.92rem;color:var(--muted)}
+.wtool input{font:inherit;font-size:1rem;padding:8px 12px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink);width:8em}
+.wout{border-radius:12px;padding:12px 14px;background:var(--accent-soft);font-size:1rem}
+.wout.up{background:var(--warm-soft)}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.tips > div{border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tips ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;font-size:.98rem}
+
 /* 流程 */
 ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
 ol.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
@@ -181,6 +201,7 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
   <nav class="toc" aria-label="本頁內容">
     <a href="#dose">劑量會不會太大？</a>
     <a href="#life">生活更方便</a>
+    <a href="#weight">會不會變胖？</a>
     <a href="#day">打針那天</a>
     <a href="#side">副作用</a>
     <a href="#faq">常見問題</a>
@@ -294,6 +315,79 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
     <p class="note">長效針取代的是「抗精神病藥」。如果您還有吃其他的藥（例如助眠、情緒或身體疾病的藥），要不要調整，請和醫師討論，不要自己停藥。</p>
   </section>
 
+  <!-- 擔憂三：體重 -->
+  <section id="weight" class="worry">
+    <p class="eyebrow">您的擔心 ②</p>
+    <p class="quote">「打長效針會不會變胖？身材會不會走樣？」</p>
+    <p class="answer">很多人都在意這件事，這很正常。先說最重要的一點：<strong>長效針是「換藥」，不是「加藥」。</strong></p>
+
+    <h3>換藥，不是加藥</h3>
+    <p>長效針裡的成分，和口服的 paliperidone 是同一種藥（risperidone 在身體裡也會變成這個成分）。改打長效針之後，原本每天吃的這類藥，醫師通常會停掉。<strong>藥的種類沒有變多，只是換一種方式進到身體裡</strong>，身體裡的藥量也和原本吃口服藥時差不多。</p>
+    <div class="chips" role="group" aria-label="切換換藥前後">
+      <button class="chip" id="sw-before" aria-pressed="true" type="button">換藥前</button>
+      <button class="chip" id="sw-after" aria-pressed="false" type="button">換藥後</button>
+    </div>
+    <div class="swap" id="swapBox" aria-live="polite">
+      <div class="slot">
+        <span class="when">每天早上</span>
+        <div class="med ap"><span class="dot"></span>精神科口服藥</div>
+        <div class="med other"><span class="dot"></span>其他藥物</div>
+      </div>
+      <div class="slot">
+        <span class="when">每天晚上</span>
+        <div class="med ap"><span class="dot"></span>精神科口服藥</div>
+        <div class="med other"><span class="dot"></span>其他藥物</div>
+      </div>
+    </div>
+    <p class="small muted" id="swapNote">示意：每個人的藥不一樣，實際要停哪些藥，請依照醫師的指示。</p>
+    <p class="note">如果您原本吃的是其他種類的精神科藥，換藥後體重的變化可能會不一樣，請先和醫師討論。其他藥物（例如助眠或身體疾病的藥）照常吃，不要自己停。</p>
+
+    <h3>體重真的會增加嗎？</h3>
+    <p>體重增加是這類藥物可能的副作用，但不是每個人都會遇到。在藥廠的研究裡，打 100 毫克的人，大約<strong>每 10 個人中有 9 個，3 個月內體重沒有明顯增加</strong>（增加不到 7%）。</p>
+    <p>就算體重慢慢增加，通常也是一點一點發生，<strong>越早發現，越好處理。</strong></p>
+
+    <h3>算算看：體重變化了多少？</h3>
+    <div class="wtool">
+      <div class="row">
+        <label for="w0">開始打針前的體重（公斤）<input type="number" id="w0" inputmode="decimal" min="20" max="250" step="0.1" value="60"></label>
+        <label for="w1">現在的體重（公斤）<input type="number" id="w1" inputmode="decimal" min="20" max="250" step="0.1" value="62"></label>
+      </div>
+      <div class="wout" id="wOut" aria-live="polite"></div>
+      <p class="small muted">上面是範例數字，請換成您自己的體重。數字只在您的裝置上計算，不會傳到任何地方。</p>
+    </div>
+
+    <h3>如果體重慢慢增加，可以怎麼做？</h3>
+    <div class="tips">
+      <div>
+        <b>1. 定期量一量</b>
+        <ul>
+          <li>開始打針前，先量一次體重和腰圍</li>
+          <li>之後每次回診，都可以量一次</li>
+          <li>有變化就說出來，不用不好意思</li>
+        </ul>
+      </div>
+      <div>
+        <b>2. 從小地方開始調整</b>
+        <ul>
+          <li>含糖飲料換成白開水或無糖茶</li>
+          <li>吃飯先吃青菜和肉、蛋、豆腐，飯放最後</li>
+          <li>胃口變好時，先喝一杯水，慢慢吃</li>
+          <li>每天多走路 10～15 分鐘</li>
+        </ul>
+      </div>
+      <div>
+        <b>3. 和醫療團隊一起想辦法</b>
+        <ul>
+          <li>抽血檢查血糖、血脂</li>
+          <li>請營養師幫忙安排飲食</li>
+          <li>醫師評估劑量是否可以調整</li>
+          <li>需要時，醫師會和您討論其他幫助控制體重的方法</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">請不要因為擔心體重就自己停藥或延後打針。停藥容易讓病情復發，而體重是可以和醫療團隊一起處理的事。</p>
+  </section>
+
   <!-- 打針那天 -->
   <section id="day">
     <p class="eyebrow">打針那天</p>
@@ -319,7 +413,7 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
         <ul>
           <li>打針的地方痠痠的、有點紅<span class="tip">通常幾天就會好</span></li>
           <li>白天比較想睡，站起來時有點暈<span class="tip">起身時慢慢來就好</span></li>
-          <li>胃口變好，體重慢慢增加<span class="tip">可以和醫療團隊一起想辦法</span></li>
+          <li>胃口變好，體重慢慢增加<span class="tip">可以和醫療團隊一起想辦法，<a href="#weight" style="color:var(--accent)">看看可以怎麼做</a></span></li>
           <li>腳停不下來、坐不太住，或手有點抖、身體比較緊<span class="tip">有藥可以幫忙改善</span></li>
           <li>月經不太規律，胸部脹脹的<span class="tip">很常見，說出來不用不好意思</span></li>
         </ul>
@@ -469,6 +563,26 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
       </div>
 
       <div class="blk">
+        <h3>7. 體重與代謝</h3>
+        <p>仿單：「Weight gain has been observed with atypical antipsychotic use. Clinical monitoring of weight is recommended.」<sup><a href="#ref1">1</a></sup></p>
+        <div class="tbl"><table>
+          <thead><tr><th>4 項安慰劑對照、9–13 週固定劑量試驗</th><th>安慰劑</th><th>39 mg</th><th>78 mg</th><th>156 mg</th><th>234/39 mg</th><th>234/156 mg</th><th>234/234 mg</th></tr></thead>
+          <tbody>
+            <tr><td>體重平均變化（kg）</td><td>−0.4</td><td>0.4</td><td>0.8</td><td>1.4</td><td>0.4</td><td>0.7</td><td>1.4</td></tr>
+            <tr><td>體重增加 ≥7% 比例</td><td>3.3%</td><td>6.0%</td><td>8.9%</td><td>9.0%</td><td>5.8%</td><td>8.3%</td><td>13.1%</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">資料：仿單 Table 9<sup><a href="#ref1">1</a></sup>。234/x mg 為三角肌 234 mg 起始後，每 4 週給予 x mg。</p>
+        <ul>
+          <li><b>長期資料：</b>開放性藥動學與安全性研究（234 mg）第 29 週平均 +2.4 kg（n=134）、第 53 週 +4.3 kg（n=113）。分裂情感障礙症研究的 25 週開放期平均 +2.2 kg，18.4% 增加 ≥7%（n=653）；其後 15 個月雙盲期終點，治療組平均 −0.2 kg、13.0% 增加 ≥7%（n=161），安慰劑組 −0.8 kg、6.0%（n=168）。<sup><a href="#ref1">1</a></sup></li>
+          <li><b>「換藥而非加藥」的依據：</b>paliperidone 為 risperidone 的主要活性代謝物；仿單指出起始期血中濃度落在口服緩釋 paliperidone 6–12 mg 的暴露範圍內<sup><a href="#ref1">1</a></sup>。由同成分口服劑型轉換時，抗精神病藥的種類與暴露量大致不變；由其他抗精神病藥轉換時，體重變化取決於原藥物。</li>
+          <li><b>監測：</b>ADA/APA 等 2004 年共識建議，使用第二代抗精神病藥時應於治療前篩檢，並持續監測體重、血脂與血糖。<sup><a href="#ref11">11</a></sup></li>
+          <li><b>處置：</b>除生活型態介入外，統合分析（12 項研究、743 位病人）顯示 metformin 相較安慰劑可使體重平均減少 3.27 kg（95% CI −4.66 至 −1.89）。<sup><a href="#ref12">12</a></sup></li>
+          <li>病人區體重計算工具以仿單使用的 ≥7% 作為提醒門檻；低於 7% 但有增加時，也會提醒病人回診時告知醫師。</li>
+        </ul>
+      </div>
+
+      <div class="blk">
         <h3>參考文獻</h3>
         <ol class="refs">
           <li id="ref1">Janssen Pharmaceuticals. INVEGA SUSTENNA (paliperidone palmitate) extended-release injectable suspension, for intramuscular use. Prescribing information. Revised 1/2025. <a href="https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&amp;query=invega+sustenna" target="_blank" rel="noopener">DailyMed</a></li>
@@ -481,6 +595,8 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
           <li id="ref8">Tiihonen J, Mittendorfer-Rutz E, Majak M, et al. Real-world effectiveness of antipsychotic treatments in a nationwide cohort of 29 823 patients with schizophrenia. JAMA Psychiatry. 2017;74(7):686-693. <a href="https://pubmed.ncbi.nlm.nih.gov/28593216/" target="_blank" rel="noopener">PMID 28593216</a></li>
           <li id="ref9">Gopal S, Gassmann-Mayer C, Palumbo J, et al. Practical guidance for dosing and switching paliperidone palmitate treatment in patients with schizophrenia. Curr Med Res Opin. 2010;26(2):377-387. <a href="https://doi.org/10.1185/03007990903482772" target="_blank" rel="noopener">doi:10.1185/03007990903482772</a></li>
           <li id="ref10">善思達持續性藥效肌肉注射懸浮劑（Invega Sustenna）中文仿單，衛署藥輸字第 025394 號。院內使用請以最新核准版本為準。<a href="https://ksph.kcg.gov.tw/7/dfiles_pdf/Invega_Sustenna_Inj.pdf" target="_blank" rel="noopener">醫院公開仿單 PDF</a></li>
+          <li id="ref11">American Diabetes Association, American Psychiatric Association, American Association of Clinical Endocrinologists, North American Association for the Study of Obesity. Consensus development conference on antipsychotic drugs and obesity and diabetes. Diabetes Care. 2004;27(2):596-601.</li>
+          <li id="ref12">de Silva VA, Suraweera C, Ratnatunga SS, Dayabandara M, Wanniarachchi N, Hanwella R. Metformin in prevention and treatment of antipsychotic induced weight gain: a systematic review and meta-analysis. BMC Psychiatry. 2016;16:341. <a href="https://pubmed.ncbi.nlm.nih.gov/27716110/" target="_blank" rel="noopener">PMID 27716110</a></li>
         </ol>
       </div>
     </div>
@@ -616,6 +732,41 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
     try{navigator.clipboard.writeText(reminder).then(done,function(){selectResult()})}catch(e){selectResult()}
   });
   function selectResult(){var r=document.createRange();r.selectNodeContents(out);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='已選取，請按複製'}
+})();
+
+// ---------- 換藥不是加藥 ----------
+(function(){
+  var box=document.getElementById('swapBox'), note=document.getElementById('swapNote');
+  function render(after){
+    document.getElementById('sw-before').setAttribute('aria-pressed',!after);
+    document.getElementById('sw-after').setAttribute('aria-pressed',after);
+    box.querySelectorAll('.med.ap').forEach(function(m){m.classList.toggle('gone',after)});
+    box.querySelectorAll('.med.inj').forEach(function(m){m.remove()});
+    if(after){
+      var inj=document.createElement('div'); inj.className='slot med inj'; inj.style.gridColumn='1 / -1'; inj.style.flexDirection='row';
+      inj.innerHTML='<span class="dot"></span>每個月一次：回診打一針（取代上面的精神科口服藥）';
+      box.appendChild(inj);
+      note.textContent='精神科口服藥換成每月一針，其他藥物照常。藥的種類沒有變多。實際要停哪些藥，請依照醫師的指示。';
+    } else {
+      note.textContent='示意：每個人的藥不一樣，實際要停哪些藥，請依照醫師的指示。';
+    }
+  }
+  document.getElementById('sw-before').addEventListener('click',function(){render(false)});
+  document.getElementById('sw-after').addEventListener('click',function(){render(true)});
+})();
+
+// ---------- 體重變化計算 ----------
+(function(){
+  var a=document.getElementById('w0'), b=document.getElementById('w1'), out=document.getElementById('wOut');
+  function calc(){
+    var w0=parseFloat(a.value), w1=parseFloat(b.value);
+    if(!(w0>=20 && w0<=250 && w1>=20 && w1<=250)){out.className='wout'; out.textContent='請輸入 20 到 250 之間的體重（公斤）。'; return}
+    var d=w1-w0, p=d/w0*100, ds=Math.abs(d).toFixed(1), ps=Math.abs(p).toFixed(1);
+    if(d<=0){out.className='wout'; out.innerHTML='體重沒有增加'+(d<0?'（減少 '+ds+' 公斤）':'')+'。很好，繼續保持，每次回診量一次就可以。';}
+    else if(p<7){out.className='wout up'; out.innerHTML='增加了 <b>'+ds+' 公斤</b>（約 '+ps+'%）。變化還不大，可以先從下面的小方法開始，回診時也可以順便跟醫師說。';}
+    else {out.className='wout up'; out.innerHTML='增加了 <b>'+ds+' 公斤</b>（約 '+ps+'%），已經超過 7%。這是醫療上會特別注意的程度，請在下次回診時告訴醫師，一起想辦法。';}
+  }
+  a.addEventListener('input',calc); b.addEventListener('input',calc); calc();
 })();
 
 // ---------- 專業參考展開 ----------
