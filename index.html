@@ -1,0 +1,752 @@
+<title>認識善思達長效針</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* 版面概念：像護理師手寫的衛教單，一次只講一件事；單欄、字大、行距寬，手機優先 */
+:root{
+  --bg:#F1F5F6; --surface:#FFFFFF; --ink:#1B2A31; --muted:#56676F; --line:#D3DFE2;
+  --accent:#1E6E76; --accent-soft:#DCEDEE;
+  --warm:#A8650F; --warm-soft:#FBEBD3;
+  --alert:#B23A3A; --alert-soft:#F8E3E1;
+  --band:rgba(30,110,118,.13);
+  --f-display:"LXGW WenKai TC","Kaiti TC","DFKai-SB",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1A1E; --surface:#16252B; --ink:#E3ECEE; --muted:#9DB0B6; --line:#2A3D44;
+  --accent:#6CC4CA; --accent-soft:#1D3A3F; --warm:#E9B45A; --warm-soft:#3A2E1A;
+  --alert:#F08A80; --alert-soft:#3D2222; --band:rgba(108,196,202,.14); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1A1E; --surface:#16252B; --ink:#E3ECEE; --muted:#9DB0B6; --line:#2A3D44;
+  --accent:#6CC4CA; --accent-soft:#1D3A3F; --warm:#E9B45A; --warm-soft:#3A2E1A;
+  --alert:#F08A80; --alert-soft:#3D2222; --band:rgba(108,196,202,.14); color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.8;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:680px;margin:0 auto;padding-block:28px 56px;display:flex;flex-direction:column;gap:48px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:2.1rem}
+h2{font-size:1.6rem}
+h3{font-size:1.2rem}
+p{margin:0}
+section{display:flex;flex-direction:column;gap:16px}
+.eyebrow{font-size:.85rem;letter-spacing:.08em;color:var(--accent);font-weight:700}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+strong{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+.hero{display:flex;flex-direction:column;gap:14px}
+.hero .lead{font-size:1.15rem}
+.drug{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.92rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.drug b{color:var(--ink);font-weight:500}
+
+.toc{display:flex;flex-wrap:wrap;gap:10px}
+.toc a{color:var(--accent);background:var(--accent-soft);text-decoration:none;padding:6px 14px;border-radius:999px;font-size:.95rem}
+
+.worry{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.quote{font-family:var(--f-display);font-size:1.3rem;color:var(--warm);line-height:1.5}
+.answer{font-size:1.1rem}
+
+/* 儲水塔比喻 */
+.analogy{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.analogy > div{background:var(--bg);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.analogy .k{font-weight:700}
+
+/* 圖表 */
+.chart-box{display:flex;flex-direction:column;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.95rem;border:2px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 14px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.chip .sw{width:18px;height:4px;border-radius:2px;display:inline-block}
+.chip[aria-pressed="true"]{border-color:var(--ink)}
+.chip[aria-pressed="false"]{opacity:.55}
+.svg-scroll{overflow-x:auto}
+svg text{font-family:var(--f-body)}
+.explain{background:var(--accent-soft);border-radius:12px;padding:14px 16px;font-size:1rem}
+
+/* 為什麼穩定：流進 = 排出 */
+.flow{display:flex;flex-direction:column;gap:12px;border-top:1px dashed var(--line);padding-top:20px}
+.steps3{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.steps3 > div{background:var(--bg);border-radius:12px;padding:12px 14px;font-size:.95rem;min-width:0}
+.steps3 b{display:block;color:var(--accent);font-family:var(--f-display);font-size:1.05rem}
+.player{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.player button.play{font:inherit;font-size:1rem;background:var(--accent);color:var(--surface);border:0;border-radius:999px;padding:8px 18px;cursor:pointer;min-width:96px}
+.player input[type="range"]{flex:1 1 200px;min-width:0;accent-color:var(--accent)}
+.player .clock{font-variant-numeric:tabular-nums;font-size:.95rem;color:var(--muted);min-width:7.5em}
+.caption{background:var(--accent-soft);border-radius:12px;padding:14px 16px;font-size:1.02rem;min-height:3.4em}
+.caption.warn{background:var(--warm-soft)}
+
+/* 一個月格子 */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal div{aspect-ratio:1;max-width:100%;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:.72rem;color:var(--muted);position:relative;line-height:1.1}
+.cal .pills{display:flex;gap:2px;margin-top:3px}
+.cal .pill{width:8px;height:8px;border-radius:50%;background:var(--warm)}
+.cal .shot{background:var(--accent);color:var(--surface);font-weight:700}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compare > div{border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.compare .o{background:var(--warm-soft)}
+.compare .l{background:var(--accent-soft)}
+.num{font-family:var(--f-display);font-size:2.2rem;line-height:1.2;font-variant-numeric:tabular-nums}
+.compare .o .num{color:var(--warm)}
+.compare .l .num{color:var(--accent)}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+select,input[type="date"]{font:inherit;font-size:1rem;padding:8px 12px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink)}
+ul.life{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.note{border-left:4px solid var(--warm);padding:4px 0 4px 14px;font-size:1rem}
+
+/* 流程 */
+ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
+ol.steps li::before{content:counter(s);width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:1.15rem}
+ol.steps li > div{min-width:0}
+
+/* 副作用 */
+.se{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.se > div{border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.se .ok{background:var(--surface);border:1px solid var(--line)}
+.se .go{background:var(--warm-soft)}
+.se .go h3{color:var(--warm)}
+.se .sub{font-size:.9rem;color:var(--muted);margin-top:-6px}
+.se ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:10px;font-size:1rem}
+.se .tip{display:block;font-size:.88rem;color:var(--muted)}
+.calm{background:var(--accent-soft);border-radius:12px;padding:14px 16px;font-size:1rem}
+
+/* FAQ */
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 18px}
+details + details{margin-top:10px}
+summary{cursor:pointer;font-weight:700;padding:12px 0;list-style-position:outside}
+details p{padding-bottom:14px;font-size:1rem}
+
+/* 回診小工具 */
+.tool{background:var(--surface);border:2px solid var(--accent);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.tool label{font-size:.95rem;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.result{background:var(--accent-soft);border-radius:12px;padding:14px 16px}
+.result .date{font-family:var(--f-display);font-size:1.5rem;color:var(--accent)}
+button.copy{font:inherit;font-size:.95rem;background:var(--accent);color:var(--surface);border:0;border-radius:10px;padding:8px 16px;cursor:pointer;align-self:flex-start}
+
+/* 專業參考 */
+.pro-toggle{font:inherit;font-size:1rem;background:var(--surface);color:var(--accent);border:2px solid var(--accent);border-radius:12px;padding:12px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left}
+.pro-toggle .arrow{transition:transform .2s}
+.pro-toggle[aria-expanded="true"] .arrow{transform:rotate(180deg)}
+.pro{font-size:.95rem;line-height:1.7;display:flex;flex-direction:column;gap:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.pro h3{font-family:var(--f-body);font-size:1.08rem;font-weight:700}
+.pro h4{margin:0;font-size:.98rem}
+.pro .blk{display:flex;flex-direction:column;gap:10px}
+.pro ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.tbl{overflow-x:auto}
+.tbl table{border-collapse:collapse;width:100%;min-width:480px;font-size:.9rem;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.tbl th{color:var(--muted);font-weight:500;background:var(--bg)}
+.pro sup a{color:var(--accent);text-decoration:none;font-weight:700}
+.insight{background:var(--accent-soft);border-radius:12px;padding:14px 16px}
+.pro code{font-size:.85em;background:var(--bg);padding:1px 5px;border-radius:4px}
+ol.refs{margin:0;padding-left:1.6em;display:flex;flex-direction:column;gap:8px;font-size:.88rem}
+ol.refs a{color:var(--accent);word-break:break-all}
+
+footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+.draft{display:inline-block;background:var(--warm-soft);color:var(--warm);font-weight:700;padding:2px 10px;border-radius:6px;font-size:.8rem;align-self:flex-start}
+
+@media (max-width:420px){body{font-size:17px}h1{font-size:1.8rem}.num{font-size:1.8rem}}
+@media (prefers-reduced-motion:no-preference){.chart-line{transition:opacity .3s}}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="draft">院內試用版・內容待醫師與藥師審閱</span>
+    <h1>一個月一針，<br>穩穩地照顧自己</h1>
+    <p class="lead">醫師建議您考慮「長效針劑」嗎？這一頁用簡單的話說明它是什麼、為什麼一次的劑量看起來比較多，以及它能讓生活輕鬆多少。</p>
+    <div class="drug">
+      <span>藥名　<b>善思達長效針 100 毫克</b></span>
+      <span>英文　<b>Invega Sustenna</b></span>
+      <span>成分　<b>paliperidone palmitate</b></span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="本頁內容">
+    <a href="#dose">劑量會不會太大？</a>
+    <a href="#life">生活更方便</a>
+    <a href="#day">打針那天</a>
+    <a href="#side">副作用</a>
+    <a href="#faq">常見問題</a>
+    <a href="#next">下次打針日</a>
+  </nav>
+
+  <section>
+    <p class="eyebrow">先認識它</p>
+    <h2>長效針是什麼？</h2>
+    <p>長效針裡的藥，和您可能吃過的口服抗精神病藥是同一類。差別在於<strong>藥物被做成非常細小的顆粒</strong>，打進肌肉之後，會在接下來的一個月裡一點一點溶解、慢慢進入身體。</p>
+    <p>所以您不用每天吃這顆藥，只要大約<strong>每個月回來打一次</strong>就可以。</p>
+  </section>
+
+  <!-- 擔憂一 -->
+  <section id="dose" class="worry">
+    <p class="eyebrow">您的擔心 ①</p>
+    <p class="quote">「一次打 100 毫克，劑量是不是很大？作用會不會很重？」</p>
+    <p class="answer">這是很多人第一個問的問題。答案是：<strong>100 毫克是「一整個月」的份量，不是一次全部發揮作用。</strong></p>
+
+    <div class="analogy">
+      <div>
+        <span class="k">口服藥像「每天提一桶水」</span>
+        <span class="small muted">每天吃一次，藥效在吃完後升高、隔天又降下來。哪天忘了吃，就一下子少很多。</span>
+      </div>
+      <div>
+        <span class="k">長效針像「一座慢慢滴水的水塔」</span>
+        <span class="small muted">水塔一次裝滿一個月的水，但出水口很小，每天只流出一點點，身體裡的藥量保持平穩。</span>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <h3>身體裡的藥量，一個月的變化</h3>
+      <div class="chips" role="group" aria-label="選擇要顯示的線">
+        <button class="chip" id="t-oral" aria-pressed="false" type="button"><span class="sw" style="background:var(--muted)"></span>每天吃藥（都沒忘）</button>
+        <button class="chip" id="t-miss" aria-pressed="true" type="button"><span class="sw" style="background:var(--warm)"></span>每天吃藥（偶爾忘記）</button>
+        <button class="chip" id="t-lai" aria-pressed="true" type="button"><span class="sw" style="background:var(--accent)"></span>長效針</button>
+      </div>
+      <div class="svg-scroll"><svg id="chart" viewBox="0 0 600 280" width="100%" role="img" aria-label="示意圖：口服藥的藥量每天上下起伏，忘記吃藥時會掉到穩定範圍以下；長效針的藥量整個月都很平穩。"></svg></div>
+      <p class="small muted">示意圖，用來說明概念，不是您個人的實際數值。長效針的線，是已經規律打針幾個月之後的情形。起伏的大小依照仿單數據校正，詳見頁面最下方的專業參考資料。</p>
+      <div class="explain" id="explain"></div>
+    </div>
+
+    <div class="flow">
+      <h3>為什麼長效針的藥量會比較穩定？</h3>
+      <p>關鍵在於：<strong>流進血液的量，和身體排出的量，差不多一樣多。</strong>按下播放，看看一個月裡藥物怎麼移動。</p>
+      <div class="steps3">
+        <div><b>1. 打進肌肉的是小顆粒</b>藥物被做成很細小的顆粒，留在肌肉裡，像一座儲水塔。</div>
+        <div><b>2. 每天只溶解一點點</b>小顆粒要花好幾週慢慢溶解，每天只有少量藥物流進血液。上一針還沒用完，新的一針就接上了。</div>
+        <div><b>3. 進來和出去一樣多</b>身體每天也會排掉差不多的量，所以血液裡的藥量一直很平穩。</div>
+      </div>
+      <div class="chips" role="group" aria-label="選擇用藥方式">
+        <button class="chip" id="m-lai" aria-pressed="true" type="button"><span class="sw" style="background:var(--accent)"></span>長效針</button>
+        <button class="chip" id="m-oral" aria-pressed="false" type="button"><span class="sw" style="background:var(--warm)"></span>每天吃藥</button>
+        <button class="chip" id="m-miss" aria-pressed="false" type="button"><span class="sw" style="background:var(--warm)"></span>每天吃藥（偶爾忘記）</button>
+      </div>
+      <div class="svg-scroll"><svg id="flowSvg" viewBox="0 0 640 330" width="100%" role="img" aria-label="示意動畫：藥物從來源流進血液，再被身體排出。"></svg></div>
+      <div class="player">
+        <button class="play" id="playBtn" type="button">▶ 播放</button>
+        <input type="range" id="tSlider" min="0" max="720" value="60" aria-label="時間（一個月）">
+        <span class="clock" id="clock"></span>
+      </div>
+      <div class="caption" id="flowCap" aria-live="polite"></div>
+      <p class="small muted">示意動畫，用來說明概念。箭頭越粗，代表那一刻流動的藥越多。長效針播放一個月；每天吃藥只播放一週，並放慢速度，方便看清楚。</p>
+    </div>
+
+    <h3>所以，緩慢釋放有什麼好處？</h3>
+    <ul class="life">
+      <li><strong>不會一下子太強：</strong>藥是慢慢放出來的，不會打完當天就「藥效很重」。</li>
+      <li><strong>變化很慢、很平緩：</strong>口服藥的藥量一天之內就會升高再降低；長效針的變化是好幾週慢慢發生，像平緩的小山坡。</li>
+      <li><strong>忘記吃藥也不怕：</strong>不用每天記得，藥量不會因為一兩天沒吃就掉下去，能幫忙減少復發。</li>
+    </ul>
+    <p class="note">開始打針前，醫師通常會先確認您吃過同類口服藥（paliperidone 或 risperidone）而且身體能適應，再改成長效針。劑量也會依照您的狀況調整，不是每個人都一樣。</p>
+  </section>
+
+  <!-- 擔憂二 / 優勢 -->
+  <section id="life" class="worry">
+    <p class="eyebrow">最大的優點</p>
+    <p class="quote">「藥越吃越多，每天都要記得，好麻煩。」</p>
+    <p class="answer">長效針可以<strong>取代每天要吃的抗精神病藥</strong>，讓藥袋變薄、生活更自由。</p>
+
+    <div class="row">
+      <label for="perDay" class="small muted">現在這類藥，您一天要吃幾次？</label>
+      <select id="perDay">
+        <option value="1">1 次</option>
+        <option value="2" selected>2 次</option>
+        <option value="3">3 次</option>
+      </select>
+    </div>
+
+    <div class="compare">
+      <div class="o"><span class="small">每天吃藥，一年要記得</span><span class="num" id="oralYear">730</span><span class="small">次</span></div>
+      <div class="l"><span class="small">改打長效針，一年大約</span><span class="num">12</span><span class="small">次回診打針</span></div>
+    </div>
+
+    <h3 class="small muted" style="font-family:var(--f-body);font-weight:500">一個月 30 天，要做幾次「吃藥這件事」？</h3>
+    <div class="row">
+      <div class="chips" role="group" aria-label="切換顯示">
+        <button class="chip" id="c-oral" aria-pressed="true" type="button">吃藥</button>
+        <button class="chip" id="c-lai" aria-pressed="false" type="button">長效針</button>
+      </div>
+    </div>
+    <div class="cal" id="cal" aria-live="polite"></div>
+
+    <h3>生活上的改變</h3>
+    <ul class="life">
+      <li>出門旅行、過夜，不用擔心忘記帶藥。</li>
+      <li>早上忙亂的時候，不會因為漏吃而心裡不安。</li>
+      <li>不必在同事或朋友面前拿出藥來吃。</li>
+      <li>家人不用每天提醒、確認您吃藥了沒，彼此壓力都小一點。</li>
+    </ul>
+    <p class="note">長效針取代的是「抗精神病藥」。如果您還有吃其他的藥（例如助眠、情緒或身體疾病的藥），要不要調整，請和醫師討論，不要自己停藥。</p>
+  </section>
+
+  <!-- 打針那天 -->
+  <section id="day">
+    <p class="eyebrow">打針那天</p>
+    <h2>大概會怎麼進行？</h2>
+    <ol class="steps">
+      <li><div><b>報到、和醫師聊聊</b><br><span class="muted small">說說這個月過得怎麼樣，有沒有不舒服。</span></div></li>
+      <li><div><b>護理師幫您打針</b><br><span class="muted small">打在上手臂或臀部的肌肉。剛開始的前兩針間隔約一週，通常打在上手臂；之後每個月一次，可以和護理師討論打哪一邊。打針本身只要很短的時間。</span></div></li>
+      <li><div><b>稍微坐一下休息</b><br><span class="muted small">打針的地方可能會痠痠的，這很常見，通常幾天內就會好。</span></div></li>
+      <li><div><b>約好下一次的日期</b><br><span class="muted small">可以用本頁最下面的小工具算出日期，記在手機裡。</span></div></li>
+    </ol>
+  </section>
+
+  <!-- 副作用 -->
+  <section id="side">
+    <p class="eyebrow">副作用</p>
+    <h2>打針後，身體可能會有的感覺</h2>
+    <p>大部分的人打針後都過得很好。就算有不舒服，通常也是輕微的，而且多半有辦法改善。</p>
+    <p>只要記得一件事：<strong>覺得哪裡怪怪的，就說出來。</strong>醫師會幫您調整，不用自己忍耐。</p>
+    <div class="se">
+      <div class="ok">
+        <h3>比較常見，通常不嚴重</h3>
+        <p class="sub">下次回診時跟醫師說就可以</p>
+        <ul>
+          <li>打針的地方痠痠的、有點紅<span class="tip">通常幾天就會好</span></li>
+          <li>白天比較想睡，站起來時有點暈<span class="tip">起身時慢慢來就好</span></li>
+          <li>胃口變好，體重慢慢增加<span class="tip">可以和醫療團隊一起想辦法</span></li>
+          <li>腳停不下來、坐不太住，或手有點抖、身體比較緊<span class="tip">有藥可以幫忙改善</span></li>
+          <li>月經不太規律，胸部脹脹的<span class="tip">很常見，說出來不用不好意思</span></li>
+        </ul>
+      </div>
+      <div class="go">
+        <h3>很少發生，但遇到時不要等</h3>
+        <p class="sub">請盡快回來看診，晚上或假日可以去急診</p>
+        <ul>
+          <li>發燒，同時全身變得很僵硬、人昏昏沉沉的</li>
+          <li>心跳很快、胸口悶，或差點暈倒</li>
+          <li>喘不過氣，臉或嘴唇腫起來</li>
+          <li>打針的地方越來越腫、越來越痛</li>
+          <li>男性：勃起好幾個小時都消不下去</li>
+          <li>心情很低落，有不想活下去的念頭<span class="tip">請隨時說出來，我們會陪您一起面對</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="calm">右邊這些情況很少見。列出來，是讓您知道什麼時候該找人幫忙，不是要嚇您。</p>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <p class="eyebrow">常見問題</p>
+    <h2>大家也會問</h2>
+    <div>
+      <details><summary>打長效針，是不是代表我的病很嚴重？</summary><p>不是。長效針是一種「吃藥方式」的選擇，就像有些人選擇每天吃、有些人選擇每月打。很多病情穩定的人選擇長效針，是因為它方便、能幫忙維持穩定。</p></details>
+      <details><summary>打針會很痛嗎？</summary><p>打針時會有一點刺痛，之後打針的地方可能痠幾天，大部分人都可以接受。如果某一邊特別不舒服，可以和護理師討論換邊打。</p></details>
+      <details><summary>會不會上癮？</summary><p>不會。這類藥物不會讓人上癮，也不會越打越需要更多。</p></details>
+      <details><summary>會改變我的個性嗎？</summary><p>不會改變您是誰。它的作用是幫助穩定症狀。如果您覺得自己變得太累、反應變慢，請告訴醫師，可以一起調整。</p></details>
+      <details><summary>晚幾天回來打可以嗎？</summary><p>每月的維持針通常在預定日期前後幾天內打都可以，但請盡量照約好的日期回診。如果真的會晚很多，請先聯絡醫療團隊，不要自己決定跳過。</p></details>
+      <details><summary>打針之後可以喝酒、開車嗎？</summary><p>酒精會讓想睡、頭暈更明顯，建議避免。剛開始打針或調整劑量的期間，先確認自己不會想睡、頭暈，再開車或操作機械。</p></details>
+      <details><summary>懷孕或想懷孕怎麼辦？</summary><p>請先和醫師討論。不要自己停藥，醫師會幫您評估最適合的做法。</p></details>
+    </div>
+  </section>
+
+  <!-- 回診工具 -->
+  <section id="next" class="tool">
+    <p class="eyebrow">小工具</p>
+    <h2>算出下次打針的日期</h2>
+    <div class="row">
+      <label for="lastDate">這次打針的日期<input type="date" id="lastDate"></label>
+      <label for="doseType">這次是哪一針<select id="doseType">
+        <option value="first">第一針（剛開始）</option>
+        <option value="second">第二針</option>
+        <option value="monthly" selected>每月的維持針</option>
+      </select></label>
+    </div>
+    <div class="result" id="result" aria-live="polite"></div>
+    <button class="copy" id="copyBtn" type="button">複製這段提醒</button>
+    <p class="small muted">日期只會在您的手機上計算，不會傳到任何地方。實際日期請以醫師或護理師告訴您的為準。</p>
+  </section>
+
+  <section id="pro-area">
+    <button class="pro-toggle" id="proBtn" type="button" aria-expanded="false" aria-controls="pro">
+      <span><b>專業人員參考</b><br><span class="small muted">藥物動力學數據、臨床實證與參考文獻</span></span>
+      <span class="arrow" aria-hidden="true">▾</span>
+    </button>
+
+    <div class="pro" id="pro" hidden>
+      <p class="small muted">以下內容提供醫師、藥師、護理師等專業人員參考，數據主要摘自美國 FDA 核准仿單（2025 年 1 月修訂版）。台灣核准劑量以 mg eq（paliperidone 當量）標示，臨床使用請以台灣核准仿單與院內規範為準。</p>
+
+      <div class="blk">
+        <h3>1. 劑型與釋放機轉</h3>
+        <ul>
+          <li>Paliperidone palmitate 為 paliperidone 的棕櫚酸酯前驅藥，配製為水性延長釋放懸浮注射劑。</li>
+          <li>仿單原文：「Due to its extremely low water solubility, the 1-month formulation … dissolves slowly after intramuscular injection before being hydrolyzed to paliperidone and absorbed into the systemic circulation.」<sup><a href="#ref1">1</a></sup></li>
+          <li>單次肌肉注射後，藥物最早於第 1 天開始釋放，可持續達 126 天；血中濃度逐漸上升，中位 T<sub>max</sub> 為 13 天。<sup><a href="#ref1">1</a></sup></li>
+          <li>39–234 mg 單次給藥的中位表觀半衰期為 25–49 天。<sup><a href="#ref1">1</a></sup>表觀半衰期遠長於口服 paliperidone 的終端排除半衰期（約 23 小時），屬於吸收速率限制（flip-flop）動力學：藥物停留時間由注射部位的溶解與吸收決定，而非全身清除。<sup><a href="#ref2">2</a>,<a href="#ref5">5</a></sup></li>
+          <li>群體藥動學分析（1,795 位受試者）以一室模型、一階排除，並以雙重吸收過程描述；主要共變數包括 BMI、肌酸酐清除率、注射部位、注射體積與針長。<sup><a href="#ref5">5</a></sup></li>
+        </ul>
+      </div>
+
+      <div class="blk">
+        <h3>2. 劑量規格與給藥時程</h3>
+        <div class="tbl"><table>
+          <thead><tr><th>Paliperidone palmitate（美國標示）</th><th>39 mg</th><th>78 mg</th><th>117 mg</th><th>156 mg</th><th>234 mg</th></tr></thead>
+          <tbody><tr><td>Paliperidone 當量（台灣標示 mg eq）</td><td>25</td><td>50</td><td>75</td><td>100</td><td>150</td></tr></tbody>
+        </table></div>
+        <ul>
+          <li><b>起始：</b>第 1 天 234 mg（150 mg eq）、第 8 天 156 mg（100 mg eq），兩劑皆注射於三角肌。<sup><a href="#ref1">1</a></sup></li>
+          <li><b>維持：</b>思覺失調症建議每月 117 mg（75 mg eq），可依耐受性與療效於 39–234 mg 間調整；維持劑可注射於三角肌或臀肌。<sup><a href="#ref1">1</a></sup></li>
+          <li><b>時間彈性：</b>第二劑可於第 8 天前後 4 天內給予；每月維持劑可於預定日前後 7 天內給予。<sup><a href="#ref1">1</a></sup></li>
+          <li><b>注射部位：</b>單次給藥時，三角肌的 C<sub>max</sub> 平均比臀肌高 28%。兩劑三角肌起始注射有助於快速達到治療濃度。<sup><a href="#ref1">1</a></sup></li>
+          <li><b>耐受性：</b>從未使用過口服 paliperidone 或口服／注射 risperidone 的病人，建議先以口服 paliperidone 或口服 risperidone 確認耐受性。<sup><a href="#ref1">1</a></sup></li>
+        </ul>
+      </div>
+
+      <div class="blk">
+        <h3>3. 漏打維持劑的處理（仿單 Table 3 摘要）</h3>
+        <div class="tbl"><table>
+          <thead><tr><th>距上次注射</th><th>建議處理</th></tr></thead>
+          <tbody>
+            <tr><td>4–6 週</td><td>盡快以原穩定劑量恢復注射，之後每月一次。</td></tr>
+            <tr><td>超過 6 週至 6 個月</td><td>盡快於三角肌注射原穩定劑量，1 週後再於三角肌注射同劑量，之後恢復每月。原穩定劑量為 234 mg 者，前兩劑各給 156 mg。</td></tr>
+            <tr><td>超過 6 個月</td><td>重新依起始時程給藥（第 1 天 234 mg、第 8 天 156 mg，皆三角肌），之後每月維持。</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">資料來源：仿單<sup><a href="#ref1">1</a></sup>。以群體藥動學模擬為基礎的劑量與轉換建議，另見 Gopal 等<sup><a href="#ref9">9</a></sup>。</p>
+      </div>
+
+      <div class="blk">
+        <h3>4. 與口服 paliperidone 緩釋錠的藥動學比較</h3>
+        <div class="tbl"><table>
+          <thead><tr><th>參數</th><th>口服緩釋錠（INVEGA）</th><th>長效針（INVEGA SUSTENNA）</th></tr></thead>
+          <tbody>
+            <tr><td>給藥間隔</td><td>每天一次</td><td>每月一次（起始第 1、8 天）</td></tr>
+            <tr><td>T<sub>max</sub>（單劑）</td><td>約 24 小時<sup><a href="#ref2">2</a></sup></td><td>中位 13 天<sup><a href="#ref1">1</a></sup></td></tr>
+            <tr><td>半衰期</td><td>終端排除半衰期約 23 小時<sup><a href="#ref2">2</a></sup></td><td>表觀半衰期 25–49 天<sup><a href="#ref1">1</a></sup></td></tr>
+            <tr><td>達穩態</td><td>多數受試者 4–5 天<sup><a href="#ref2">2</a></sup></td><td>起始時程設計為不需口服補充即快速達穩態濃度<sup><a href="#ref1">1</a></sup></td></tr>
+            <tr><td>穩態峰谷比</td><td>9 mg：1.7（範圍 1.2–3.1）<sup><a href="#ref2">2</a></sup></td><td>156 mg：臀肌 1.8、三角肌 2.2<sup><a href="#ref1">1</a></sup></td></tr>
+            <tr><td>波動指數</td><td>12 mg：38%（risperidone 速放劑型 125%）<sup><a href="#ref3">3</a></sup></td><td>—</td></tr>
+            <tr><td>口服絕對生體可用率</td><td>28%<sup><a href="#ref2">2</a></sup></td><td>不適用（肌肉注射）</td></tr>
+            <tr><td>個體間變異</td><td colspan="2">長效針的個體間藥動學變異低於口服緩釋錠<sup><a href="#ref1">1</a></sup></td></tr>
+          </tbody>
+        </table></div>
+        <p>仿單指出，起始期整體血中濃度落在口服緩釋 paliperidone 6–12 mg 的暴露範圍內，即使在給藥前的谷值日（第 8 天與第 36 天）亦然。<sup><a href="#ref1">1</a></sup>口服緩釋錠為 OROS 控制釋放劑型，穩態蓄積約 3.5 倍。<sup><a href="#ref3">3</a>,<a href="#ref4">4</a></sup></p>
+        <div class="insight">
+          <h4>臨床解讀</h4>
+          <p>依仿單數據，兩種劑型的穩態峰谷比相近（約 1.7–2.2），長效針的優勢不在於「一個給藥間隔內波動較小」，而在於：</p>
+          <ul>
+            <li>波動發生在數週內，不是每天重複一次。</li>
+            <li>不受單日漏服影響，口服劑型漏服 1–2 天即可能顯著低於穩態谷值。</li>
+            <li>表觀半衰期長，提供漏打的緩衝時間（±7 天給藥彈性、4–6 週內可直接恢復）。</li>
+            <li>個體間變異較低，且給藥事實可由醫療團隊確認。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="blk">
+        <h3>5. 臨床效益的實證</h3>
+        <ul>
+          <li><b>隨機對照試驗統合分析：</b>Kishimoto 等（2014）納入至少 6 個月的 RCT，長效針與口服抗精神病藥在預防復發或住院上未達統計顯著差異。<sup><a href="#ref6">6</a></sup></li>
+          <li><b>跨研究設計統合分析：</b>Kishimoto 等（2021）整合 RCT、世代研究與前後比較研究，長效針在三種設計中皆與較低的住院或復發風險相關，前後比較研究的效果最大。<sup><a href="#ref7">7</a></sup></li>
+          <li><b>全國性真實世界世代研究：</b>Tiihonen 等（2017）以瑞典 29,823 位思覺失調症病人進行個體內分析，clozapine 與長效針劑是預防復發比率最高的藥物治療。<sup><a href="#ref8">8</a></sup></li>
+          <li>RCT 與觀察性研究結果的差異，一般認為與 RCT 受試者服藥順從性較佳、較難反映真實世界有關。<sup><a href="#ref8">8</a></sup></li>
+        </ul>
+      </div>
+
+      <div class="blk">
+        <h3>6. 本頁示意圖的模型說明</h3>
+        <p>病人衛教區的圖表與動畫為概念示意，不代表個別病人的濃度，也不應用於劑量決策。「穩定範圍」為示意區間，並非治療濃度範圍；縱軸為相對單位（以平均穩態濃度 = 1 標準化）。</p>
+        <ul>
+          <li><b>口服緩釋錠：</b>一室模型，一階吸收 <code>ka = 16 /天</code>、一階排除 <code>ke = 0.69 /天</code>（t<sub>½</sub> ≈ 24 小時），每日給藥一次。<code>ka</code> 經校正使穩態峰谷比 ≈ 1.7，與仿單 9 mg 數值相符。簡化之處：模型 T<sub>max</sub> 約 4 小時，較仿單的約 24 小時早，未模擬 OROS 的零階釋放。</li>
+          <li><b>長效針：</b>注射部位兩段串聯一階過程（溶解 <code>k = 0.35 /天</code> → 吸收 <code>k = ln2 / 25 天</code>），全身排除同上，每 30 天給藥一次，預先模擬 8 個月至穩態。穩態峰谷比 ≈ 1.8，與仿單 156 mg 臀肌數值相符。簡化之處：穩態下的峰值約在注射後第 6 天，未呈現單劑 T<sub>max</sub> 13 天，也未模擬雙重吸收、注射部位差異與共變數。</li>
+          <li>「偶爾忘記」情境為示意：口服曲線省略第 8、9、17、23、24 天（圖表）或第 4、5 天（動畫）的劑量。</li>
+        </ul>
+      </div>
+
+      <div class="blk">
+        <h3>參考文獻</h3>
+        <ol class="refs">
+          <li id="ref1">Janssen Pharmaceuticals. INVEGA SUSTENNA (paliperidone palmitate) extended-release injectable suspension, for intramuscular use. Prescribing information. Revised 1/2025. <a href="https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&amp;query=invega+sustenna" target="_blank" rel="noopener">DailyMed</a></li>
+          <li id="ref2">Janssen Pharmaceuticals. INVEGA (paliperidone) extended-release tablets. Prescribing information. Revised 1/2025. <a href="https://www.jnjlabels.com/package-insert/product-monograph/prescribing-information/INVEGA-pi.pdf" target="_blank" rel="noopener">jnjlabels.com</a></li>
+          <li id="ref3">J&amp;J Medical Connect. INVEGA – Pharmacokinetics（含 Berwaerts 2010、Rossenu 2007、Boom 2009 摘要）. Last updated 08/19/2026. <a href="https://www.jnjmedicalconnect.com/products/invega/medical-content/invega-pharmacokinetics" target="_blank" rel="noopener">jnjmedicalconnect.com</a></li>
+          <li id="ref4">Boom S, Talluri K, Janssens L, et al. Single- and multiple-dose pharmacokinetics and dose proportionality of the psychotropic agent paliperidone extended release. J Clin Pharmacol. 2009;49(11):1318-1330. <a href="https://doi.org/10.1177/0091270009339190" target="_blank" rel="noopener">doi:10.1177/0091270009339190</a></li>
+          <li id="ref5">Samtani MN, Vermeulen A, Stuyckens K. Population pharmacokinetics of intramuscular paliperidone palmitate in patients with schizophrenia: a novel once-monthly, long-acting formulation of an atypical antipsychotic. Clin Pharmacokinet. 2009;48(9):585-600.</li>
+          <li id="ref6">Kishimoto T, Robenzadeh A, Leucht C, et al. Long-acting injectable vs oral antipsychotics for relapse prevention in schizophrenia: a meta-analysis of randomized trials. Schizophr Bull. 2014;40(1):192-213.</li>
+          <li id="ref7">Kishimoto T, Hagi K, Kurokawa S, Kane JM, Correll CU. Long-acting injectable versus oral antipsychotics for the maintenance treatment of schizophrenia: a systematic review and comparative meta-analysis of randomised, cohort, and pre-post studies. Lancet Psychiatry. 2021;8(5):387-404. <a href="https://pubmed.ncbi.nlm.nih.gov/33862018/" target="_blank" rel="noopener">PMID 33862018</a></li>
+          <li id="ref8">Tiihonen J, Mittendorfer-Rutz E, Majak M, et al. Real-world effectiveness of antipsychotic treatments in a nationwide cohort of 29 823 patients with schizophrenia. JAMA Psychiatry. 2017;74(7):686-693. <a href="https://pubmed.ncbi.nlm.nih.gov/28593216/" target="_blank" rel="noopener">PMID 28593216</a></li>
+          <li id="ref9">Gopal S, Gassmann-Mayer C, Palumbo J, et al. Practical guidance for dosing and switching paliperidone palmitate treatment in patients with schizophrenia. Curr Med Res Opin. 2010;26(2):377-387. <a href="https://doi.org/10.1185/03007990903482772" target="_blank" rel="noopener">doi:10.1185/03007990903482772</a></li>
+          <li id="ref10">善思達持續性藥效肌肉注射懸浮劑（Invega Sustenna）中文仿單，衛署藥輸字第 025394 號。院內使用請以最新核准版本為準。<a href="https://ksph.kcg.gov.tw/7/dfiles_pdf/Invega_Sustenna_Inj.pdf" target="_blank" rel="noopener">醫院公開仿單 PDF</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>本頁為衛教說明，不能取代醫師的診療與建議。有任何疑問，請詢問您的醫療團隊。</span>
+    <span>內容依據 paliperidone palmitate 長效注射劑的一般資訊整理，使用前請以台灣核准仿單與院內作業規範審閱。</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // ---------- 藥量示意圖 ----------
+  var W=600,H=280,L=44,R=12,T=16,B=40,DAYS=30,YMAX=1.9;
+  function x(d){return L+(d/DAYS)*(W-L-R)}
+  function y(v){return T+(1-v/YMAX)*(H-T-B)}
+  function simOral(missed){
+    // 口服 paliperidone 緩釋錠：半衰期約 23 小時（ke≈0.69/天）；吸收速率取 ka=16/天，
+    // 校正使穩態峰谷比 ≈1.7（仿單：9 mg 為 1.7，範圍 1.2–3.1）。簡化：Tmax 約 4 小時，與仿單單劑約 24 小時不同
+    var ka=16,ke=0.69,dt=0.02,A=0,C=0,out=[];
+    for(var t=-20;t<=DAYS+1e-9;t=Math.round((t+dt)*100)/100){
+      if(Math.abs(t-Math.round(t))<1e-6){var d=Math.round(t); if(!(d>=0 && missed.indexOf(d)>-1)) A+=1;}
+      var a=ka*A*dt; A-=a; C+=a-ke*C*dt;
+      if(t>=0) out.push([t,C]);
+    }
+    return out;
+  }
+  var perfect=simOral([]);
+  var mean=perfect.reduce(function(s,p){return s+p[1]},0)/perfect.length;
+  function norm(arr){return arr.map(function(p){return [p[0],p[1]/mean]})}
+  var oral=norm(perfect), miss=norm(simOral([8,9,17,23,24]));
+  // 長效針：每月一針、已達穩態。兩段一階過程（溶解 K2=0.35/天 → 吸收速率限制 K1=ln2/25 天）；
+  // 校正使穩態峰谷比 ≈1.8（仿單：156 mg 臀肌 1.8、三角肌 2.2）
+  var K1=Math.LN2/25, K2=0.35;
+  function laiRaw(t){var s=0; for(var n=0;n<12;n++){var u=t+n*30; s+=Math.exp(-K1*u)-Math.exp(-K2*u);} return s}
+  var laiPts=[], lsum=0; for(var t=0;t<=DAYS;t+=0.25){var v=laiRaw(t); laiPts.push([t,v]); lsum+=v}
+  var lmean=lsum/laiPts.length, lai=laiPts.map(function(p){return [p[0],p[1]/lmean]});
+  function path(arr){return arr.map(function(p,i){return (i?'L':'M')+x(p[0]).toFixed(1)+' '+y(p[1]).toFixed(1)}).join(' ')}
+
+  var svg=document.getElementById('chart');
+  var bandLo=0.6,bandHi=1.5;
+  var s='';
+  s+='<rect x="'+L+'" y="'+y(bandHi)+'" width="'+(W-L-R)+'" height="'+(y(bandLo)-y(bandHi))+'" fill="var(--band)"/>';
+  s+='<text x="'+(L+8)+'" y="'+(y(bandHi)+18)+'" font-size="13" fill="var(--accent)">藥效穩定的範圍</text>';
+  s+='<text x="'+(L+8)+'" y="'+(y(bandLo)+18)+'" font-size="13" fill="var(--muted)">藥量不夠，症狀可能變不穩</text>';
+  s+='<line x1="'+L+'" y1="'+y(0)+'" x2="'+(W-R)+'" y2="'+y(0)+'" stroke="var(--line)" stroke-width="1.5"/>';
+  [1,10,20,30].forEach(function(d){
+    s+='<line x1="'+x(d)+'" y1="'+y(0)+'" x2="'+x(d)+'" y2="'+(y(0)+5)+'" stroke="var(--muted)"/>';
+    s+='<text x="'+x(d)+'" y="'+(y(0)+22)+'" font-size="13" text-anchor="middle" fill="var(--muted)">第'+d+'天</text>';
+  });
+  s+='<text x="14" y="'+((T+H-B)/2)+'" font-size="13" fill="var(--muted)" transform="rotate(-90 14 '+((T+H-B)/2)+')" text-anchor="middle">身體裡的藥量</text>';
+  s+='<path class="chart-line" id="l-oral" d="'+path(oral)+'" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>';
+  s+='<path class="chart-line" id="l-miss" d="'+path(miss)+'" fill="none" stroke="var(--warm)" stroke-width="2.5"/>';
+  s+='<path class="chart-line" id="l-lai" d="'+path(lai)+'" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>';
+  [8,17,23].forEach(function(d){
+    s+='<text x="'+x(d+0.6)+'" y="'+(y(0.28))+'" font-size="12" text-anchor="middle" fill="var(--warm)">忘記吃</text>';
+  });
+  svg.innerHTML=s;
+
+  var msgs={
+    lai:'<b>長效針（藍綠色線）：</b>打完後大約一週內藥量慢慢升高一點，再緩緩回落，像平緩的小山坡。整個月都待在穩定範圍裡，也不用每天記得。',
+    miss:'<b>偶爾忘記吃（橘色線）：</b>只要漏掉一兩天，藥量就會掉到穩定範圍下面，症狀比較容易波動。',
+    oral:'<b>每天都有吃（灰色虛線）：</b>吃藥後幾個小時藥量最高，到下次吃藥前最低，每天重複一次。只要按時吃，起伏的大小和長效針差不多。難的是要每天都不忘。'
+  };
+  var keys=['oral','miss','lai'];
+  function render(){
+    var html=[];
+    keys.forEach(function(k){
+      var on=document.getElementById('t-'+k).getAttribute('aria-pressed')==='true';
+      document.getElementById('l-'+k).style.opacity=on?1:0;
+      if(on) html.push(msgs[k]);
+    });
+    document.getElementById('explain').innerHTML=html.length?html.join('<br>'):'點上面的按鈕，選擇要比較的情況。';
+  }
+  keys.forEach(function(k){
+    document.getElementById('t-'+k).addEventListener('click',function(){
+      this.setAttribute('aria-pressed',this.getAttribute('aria-pressed')==='true'?'false':'true'); render();
+    });
+  });
+  render();
+
+  // ---------- 一個月格子 ----------
+  var mode='oral';
+  var perDay=document.getElementById('perDay');
+  function renderCal(){
+    var n=+perDay.value, h='';
+    document.getElementById('oralYear').textContent=(n*365).toLocaleString('zh-TW');
+    for(var d=1;d<=30;d++){
+      if(mode==='oral'){
+        var p=''; for(var i=0;i<n;i++) p+='<span class="pill"></span>';
+        h+='<div><span>'+d+'</span><span class="pills">'+p+'</span></div>';
+      } else {
+        h+= d===1 ? '<div class="shot"><span>'+d+'</span><span>打針</span></div>' : '<div><span>'+d+'</span></div>';
+      }
+    }
+    var cal=document.getElementById('cal'); cal.innerHTML=h;
+    cal.setAttribute('aria-label', mode==='oral' ? ('吃藥：30 天共 '+(30*n)+' 次') : '長效針：30 天只有 1 次');
+  }
+  perDay.addEventListener('change',renderCal);
+  ['oral','lai'].forEach(function(m){
+    document.getElementById('c-'+m).addEventListener('click',function(){
+      mode=m;
+      document.getElementById('c-oral').setAttribute('aria-pressed',m==='oral');
+      document.getElementById('c-lai').setAttribute('aria-pressed',m==='lai');
+      renderCal();
+    });
+  });
+  renderCal();
+
+  // ---------- 下次打針日 ----------
+  var dateEl=document.getElementById('lastDate'), typeEl=document.getElementById('doseType'), out=document.getElementById('result');
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+  var today=new Date(); dateEl.value=iso(today);
+  function addDays(d,n){var r=new Date(d); r.setDate(r.getDate()+n); return r}
+  function addMonth(d){var r=new Date(d.getFullYear(),d.getMonth()+1,1); var last=new Date(r.getFullYear(),r.getMonth()+1,0).getDate(); r.setDate(Math.min(d.getDate(),last)); return r}
+  function fmt(d){return d.toLocaleDateString('zh-TW',{year:'numeric',month:'long',day:'numeric',weekday:'short'})}
+  var reminder='';
+  function calc(){
+    if(!dateEl.value){out.innerHTML='請先選擇這次打針的日期。';reminder='';return}
+    var p=dateEl.value.split('-'), d=new Date(+p[0],+p[1]-1,+p[2]), next, win;
+    if(typeEl.value==='first'){next=addDays(d,7); win=4; }
+    else {next=addMonth(d); win=7;}
+    var lo=addDays(next,-win), hi=addDays(next,win);
+    out.innerHTML='<span class="small muted">下次建議回診打針</span><br><span class="date">'+fmt(next)+'</span><br><span class="small">如果那天不方便，大約在 '+fmt(lo)+' 到 '+fmt(hi)+' 之間，請先和醫療團隊確認。</span>';
+    reminder='善思達長效針回診：'+fmt(next)+'（不方便時請先聯絡醫療團隊）';
+  }
+  dateEl.addEventListener('change',calc); typeEl.addEventListener('change',calc); calc();
+  var btn=document.getElementById('copyBtn');
+  btn.addEventListener('click',function(){
+    if(!reminder) return;
+    var done=function(){btn.textContent='已複製';setTimeout(function(){btn.textContent='複製這段提醒'},1800)};
+    try{navigator.clipboard.writeText(reminder).then(done,function(){selectResult()})}catch(e){selectResult()}
+  });
+  function selectResult(){var r=document.createRange();r.selectNodeContents(out);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='已選取，請按複製'}
+})();
+
+// ---------- 專業參考展開 ----------
+(function(){
+  var b=document.getElementById('proBtn'), p=document.getElementById('pro');
+  function open(v){p.hidden=!v; b.setAttribute('aria-expanded',v)}
+  b.addEventListener('click',function(){open(p.hidden)});
+  document.querySelectorAll('a[href^="#ref"]').forEach(function(a){a.addEventListener('click',function(){open(true)})});
+})();
+
+// ---------- 為什麼穩定：流進 = 排出 動畫 ----------
+(function(){
+  var KE=0.69, KA=16, DOSE=14, HOURS=720, DMAX=520, CMAX=40, LO=10, HI=32, MISSED=[3,4];
+  // 每天吃藥只看一週，並放慢速度（每小時 150 毫秒，一天約 3.6 秒）；長效針看一個月（每小時 30 毫秒）
+  var SPAN={lai:720, oral:168, miss:168}, SPEED={lai:30, oral:150, miss:150};
+  function H(){return SPAN[mode]}
+  function simulate(mode){
+    var out=[], sub=6, dt=1/24/sub;
+    if(mode==='lai'){
+      // X1：剛打進去、還沒開始溶的小顆粒；X2：正在慢慢溶解的；每 30 天一針，先模擬 8 個月到穩定
+      var X1=0,X2=0,C=0,K1=Math.LN2/25,K2=0.35,LD=DOSE*30;
+      for(var h=-720*8;h<=HOURS;h++){
+        if(h<=0 && ((h%720)+720)%720===0) X1+=LD;
+        if(h>=0) out.push({src:X1+X2, fresh:X1, C:C, inR:K1*X2, outR:KE*C});
+        for(var s=0;s<sub;s++){var a=K2*X1*dt, b=K1*X2*dt; X1-=a; X2+=a-b; C+=b-KE*C*dt;}
+      }
+      var mx=0; out.forEach(function(p){mx=Math.max(mx,p.src)});
+      out.forEach(function(p){p.src/=mx; p.fresh/=mx});
+    } else {
+      var G=0, C2=0, miss=mode==='miss';
+      for(var hh=-240;hh<=HOURS;hh++){
+        var day=Math.floor(hh/24);
+        if(((hh%24)+24)%24===8 && !(miss && hh>=0 && MISSED.indexOf(day)>-1)) G+=DOSE;
+        if(hh>=0) out.push({src:Math.min(1,G/DOSE*0.25), C:C2, inR:KA*G, outR:KE*C2, day:day, hour:hh%24, missed:miss && MISSED.indexOf(day)>-1});
+        for(var k=0;k<sub;k++){var a=KA*G*dt; G-=a; C2+=a-KE*C2*dt;}
+      }
+    }
+    return out;
+  }
+  var data={lai:simulate('lai'), oral:simulate('oral'), miss:simulate('miss')};
+  var mode='lai', t=60, playing=false, last=0, acc=0;
+  var svg=document.getElementById('flowSvg'), slider=document.getElementById('tSlider'),
+      clock=document.getElementById('clock'), cap=document.getElementById('flowCap'), playBtn=document.getElementById('playBtn');
+
+  // 固定的框架
+  var BX={src:{x:20,y:46,w:160,h:170}, blood:{x:240,y:46,w:160,h:170}, exit:{x:460,y:46,w:160,h:170}};
+  function by(v){var b=BX.blood; return b.y+b.h-(Math.min(v,CMAX)/CMAX)*b.h}
+  var g='';
+  g+='<text id="srcTitle" x="'+(BX.src.x+80)+'" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)"></text>';
+  g+='<text x="'+(BX.blood.x+80)+'" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">血液中的藥量</text>';
+  g+='<text x="'+(BX.exit.x+80)+'" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">排出體外</text>';
+  g+='<rect x="'+BX.src.x+'" y="'+BX.src.y+'" width="'+BX.src.w+'" height="'+BX.src.h+'" rx="14" fill="var(--bg)" stroke="var(--line)" stroke-width="2"/>';
+  g+='<g id="dots"></g>';
+  g+='<text id="srcLegend" x="'+(BX.src.x+80)+'" y="234" text-anchor="middle" font-size="12" fill="var(--muted)"></text>';
+  g+='<rect x="'+BX.blood.x+'" y="'+BX.blood.y+'" width="'+BX.blood.w+'" height="'+BX.blood.h+'" rx="14" fill="var(--bg)" stroke="var(--line)" stroke-width="2"/>';
+  g+='<clipPath id="bclip"><rect x="'+BX.blood.x+'" y="'+BX.blood.y+'" width="'+BX.blood.w+'" height="'+BX.blood.h+'" rx="14"/></clipPath>';
+  g+='<rect id="bfill" clip-path="url(#bclip)" x="'+BX.blood.x+'" width="'+BX.blood.w+'" fill="var(--accent)" opacity=".35"/>';
+  g+='<rect x="'+BX.blood.x+'" y="'+by(HI)+'" width="'+BX.blood.w+'" height="'+(by(LO)-by(HI))+'" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 4"/>';
+  g+='<text x="'+(BX.blood.x+8)+'" y="'+(by(HI)-6)+'" font-size="12" fill="var(--accent)">穩定範圍</text>';
+  g+='<rect x="'+BX.exit.x+'" y="'+BX.exit.y+'" width="'+BX.exit.w+'" height="'+BX.exit.h+'" rx="14" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 5"/>';
+  g+='<text x="'+(BX.exit.x+80)+'" y="'+(BX.exit.y+80)+'" text-anchor="middle" font-size="14" fill="var(--muted)">經由肝臟、腎臟</text>';
+  g+='<text x="'+(BX.exit.x+80)+'" y="'+(BX.exit.y+102)+'" text-anchor="middle" font-size="14" fill="var(--muted)">慢慢代謝排出</text>';
+  g+='<line id="a1" x1="184" y1="131" x2="226" y2="131" stroke-linecap="round"/><polygon id="h1" fill="var(--accent)"/>';
+  g+='<line id="a2" x1="404" y1="131" x2="446" y2="131" stroke="var(--muted)" stroke-linecap="round"/><polygon id="h2" fill="var(--muted)"/>';
+  g+='<text x="205" y="108" text-anchor="middle" font-size="12" fill="var(--muted)">流進</text>';
+  g+='<text x="425" y="108" text-anchor="middle" font-size="12" fill="var(--muted)">排出</text>';
+  // 走勢小圖
+  g+='<rect x="20" y="246" width="600" height="70" rx="10" fill="var(--bg)"/>';
+  g+='<rect id="sband" x="20" width="600" fill="var(--band)"/>';
+  g+='<path id="spark" fill="none" stroke-width="2.5" stroke-linejoin="round"/>';
+  g+='<circle id="sdot" r="5"/>';
+  g+='<text id="sparkLabel" x="28" y="262" font-size="12" fill="var(--muted)"></text>';
+  svg.innerHTML=g;
+  function sx(i){return 26+(i/H())*588}
+  function sy(v){return 312-(Math.min(v,CMAX)/CMAX)*58}
+  var sb=document.getElementById('sband'); sb.setAttribute('y',sy(HI)); sb.setAttribute('height',sy(LO)-sy(HI));
+
+  function arrow(lineId,headId,x2,w,color){
+    var l=document.getElementById(lineId), hd=document.getElementById(headId);
+    l.setAttribute('stroke-width',w.toFixed(1)); l.setAttribute('stroke',color); l.setAttribute('x2',x2-6);
+    var hw=Math.max(8,w*0.9);
+    hd.setAttribute('points',(x2-8)+','+(131-hw)+' '+(x2+8)+',131 '+(x2-8)+','+(131+hw)); hd.setAttribute('fill',color);
+  }
+  function draw(){
+    var arr=data[mode], p=arr[t], lai=mode==='lai', color=lai?'var(--accent)':'var(--warm)';
+    document.getElementById('srcTitle').textContent=lai?'肌肉裡的藥物小顆粒':'腸胃裡剛吃下的藥';
+    // 來源的點點
+    var n=Math.round(p.src*60), nf=lai?Math.min(n,Math.round(p.fresh*60)):0, d='';
+    for(var i=0;i<n;i++){var r=Math.floor(i/6), c=i%6; d+='<circle cx="'+(BX.src.x+22+c*23)+'" cy="'+(BX.src.y+BX.src.h-14-r*16)+'" r="6" fill="'+color+'"'+(i>=n-nf?' opacity=".4"':'')+'/>';}
+    document.getElementById('dots').innerHTML=d;
+    document.getElementById('srcLegend').textContent=lai?'淺色：新的一針　深色：之前留下的':'';
+    document.getElementById('sparkLabel').textContent=lai?'一個月的藥量變化':'一週的藥量變化';
+    // 血液
+    var bf=document.getElementById('bfill'), yy=by(p.C);
+    bf.setAttribute('y',yy); bf.setAttribute('height',BX.blood.y+BX.blood.h-yy);
+    bf.setAttribute('fill',p.C<LO?'var(--warm)':'var(--accent)');
+    // 箭頭粗細
+    arrow('a1','h1',230,2+Math.min(p.inR,84)/84*16,color);
+    arrow('a2','h2',450,2+Math.min(p.outR,30)/84*16,'var(--muted)');
+    // 走勢
+    var path='';
+    for(var j=0;j<=t;j+=3) path+=(j?'L':'M')+sx(j).toFixed(1)+' '+sy(arr[j].C).toFixed(1);
+    path+='L'+sx(t).toFixed(1)+' '+sy(p.C).toFixed(1);
+    var sp=document.getElementById('spark'); sp.setAttribute('d',path); sp.setAttribute('stroke',color);
+    var sd=document.getElementById('sdot'); sd.setAttribute('cx',sx(t)); sd.setAttribute('cy',sy(p.C)); sd.setAttribute('fill',color);
+    // 時間與說明
+    var day=Math.floor(t/24)+1, hour=t%24;
+    clock.textContent='第 '+day+' 天　'+String(hour).padStart(2,'0')+':00';
+    slider.value=t;
+    var msg, warn=false;
+    if(lai){
+      if(t<72) msg='剛打完新的一針（淺色點點）。新的小顆粒不會馬上全部釋放，要花好幾天到幾週才慢慢溶出來，所以不會一下子藥效很重。';
+      else if(t<192) msg='新的一針慢慢溶出來，加上之前留下的，藥量會稍微升高一點點。流進和排出的量差不多，所以一直在穩定範圍裡。';
+      else if(t<600) msg='藥量緩緩回落。肌肉裡還存著之前留下的小顆粒，會繼續一點一點溶出來。';
+      else msg='一個月後，肌肉裡還存著不少小顆粒，所以晚幾天回診也不會一下子沒藥。不過還是要照約定回來打下一針。';
+    } else if(p.missed && hour>=8){
+      msg='今天忘了吃藥，沒有新的藥流進來。身體還是照樣在排出，血液裡的藥量就一直往下掉。'; warn=true;
+    } else if(hour>=8 && hour<14){
+      msg='剛吃完藥：接下來幾個小時，藥物陸續被吸收進血液（左邊箭頭變粗），藥量升高到一天中最高。';
+    } else {
+      msg='這段時間沒有新的藥進來，身體持續排出，藥量慢慢往下掉，要等下一次吃藥才會補回來。';
+      if(p.C<LO) warn=true;
+    }
+    cap.textContent=msg; cap.className='caption'+(warn?' warn':'');
+  }
+  function setMode(m){
+    mode=m;
+    slider.max=H(); if(t>H()) t=H();
+    ['lai','oral','miss'].forEach(function(k){document.getElementById('m-'+k).setAttribute('aria-pressed',k===m)});
+    draw();
+  }
+  ['lai','oral','miss'].forEach(function(k){document.getElementById('m-'+k).addEventListener('click',function(){setMode(k)})});
+  slider.addEventListener('input',function(){t=+slider.value; draw()});
+  function step(ts){
+    if(!playing) return;
+    if(last) acc+=ts-last; last=ts;
+    while(acc>=SPEED[mode]){acc-=SPEED[mode]; t++; if(t>H()){t=H(); playing=false; playBtn.textContent='↺ 重新播放'; draw(); return;}}
+    draw(); requestAnimationFrame(step);
+  }
+  playBtn.addEventListener('click',function(){
+    if(playing){playing=false; playBtn.textContent='▶ 播放'; return;}
+    if(t>=H()) t=0;
+    playing=true; last=0; acc=0; playBtn.textContent='❚❚ 暫停'; requestAnimationFrame(step);
+  });
+  draw();
+})();
+</script>
