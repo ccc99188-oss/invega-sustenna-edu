@@ -200,8 +200,8 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
 
   <nav class="toc" aria-label="本頁內容">
     <a href="#dose">劑量會不會太大？</a>
-    <a href="#life">生活更方便</a>
     <a href="#weight">會不會變胖？</a>
+    <a href="#life">生活更方便</a>
     <a href="#day">打針那天</a>
     <a href="#side">副作用</a>
     <a href="#faq">常見問題</a>
@@ -276,45 +276,6 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
     <p class="note">開始打針前，醫師通常會先確認您吃過同類口服藥（paliperidone 或 risperidone）而且身體能適應，再改成長效針。劑量也會依照您的狀況調整，不是每個人都一樣。</p>
   </section>
 
-  <!-- 擔憂二 / 優勢 -->
-  <section id="life" class="worry">
-    <p class="eyebrow">最大的優點</p>
-    <p class="quote">「藥越吃越多，每天都要記得，好麻煩。」</p>
-    <p class="answer">長效針可以<strong>取代每天要吃的抗精神病藥</strong>，讓藥袋變薄、生活更自由。</p>
-
-    <div class="row">
-      <label for="perDay" class="small muted">現在這類藥，您一天要吃幾次？</label>
-      <select id="perDay">
-        <option value="1">1 次</option>
-        <option value="2" selected>2 次</option>
-        <option value="3">3 次</option>
-      </select>
-    </div>
-
-    <div class="compare">
-      <div class="o"><span class="small">每天吃藥，一年要記得</span><span class="num" id="oralYear">730</span><span class="small">次</span></div>
-      <div class="l"><span class="small">改打長效針，一年大約</span><span class="num">12</span><span class="small">次回診打針</span></div>
-    </div>
-
-    <h3 class="small muted" style="font-family:var(--f-body);font-weight:500">一個月 30 天，要做幾次「吃藥這件事」？</h3>
-    <div class="row">
-      <div class="chips" role="group" aria-label="切換顯示">
-        <button class="chip" id="c-oral" aria-pressed="true" type="button">吃藥</button>
-        <button class="chip" id="c-lai" aria-pressed="false" type="button">長效針</button>
-      </div>
-    </div>
-    <div class="cal" id="cal" aria-live="polite"></div>
-
-    <h3>生活上的改變</h3>
-    <ul class="life">
-      <li>出門旅行、過夜，不用擔心忘記帶藥。</li>
-      <li>早上忙亂的時候，不會因為漏吃而心裡不安。</li>
-      <li>不必在同事或朋友面前拿出藥來吃。</li>
-      <li>家人不用每天提醒、確認您吃藥了沒，彼此壓力都小一點。</li>
-    </ul>
-    <p class="note">長效針取代的是「抗精神病藥」。如果您還有吃其他的藥（例如助眠、情緒或身體疾病的藥），要不要調整，請和醫師討論，不要自己停藥。</p>
-  </section>
-
   <!-- 擔憂三：體重 -->
   <section id="weight" class="worry">
     <p class="eyebrow">您的擔心 ②</p>
@@ -386,6 +347,45 @@ footer{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padd
       </div>
     </div>
     <p class="note">請不要因為擔心體重就自己停藥或延後打針。停藥容易讓病情復發，而體重是可以和醫療團隊一起處理的事。</p>
+  </section>
+
+  <!-- 擔憂二 / 優勢 -->
+  <section id="life" class="worry">
+    <p class="eyebrow">最大的優點</p>
+    <p class="quote">「藥越吃越多，每天都要記得，好麻煩。」</p>
+    <p class="answer">長效針可以<strong>取代每天要吃的抗精神病藥</strong>，讓藥袋變薄、生活更自由。</p>
+
+    <div class="row">
+      <label for="perDay" class="small muted">現在這類藥，您一天要吃幾次？</label>
+      <select id="perDay">
+        <option value="1">1 次</option>
+        <option value="2" selected>2 次</option>
+        <option value="3">3 次</option>
+      </select>
+    </div>
+
+    <div class="compare">
+      <div class="o"><span class="small">每天吃藥，一年要記得</span><span class="num" id="oralYear">730</span><span class="small">次</span></div>
+      <div class="l"><span class="small">改打長效針，一年大約</span><span class="num">12</span><span class="small">次回診打針</span></div>
+    </div>
+
+    <h3 class="small muted" style="font-family:var(--f-body);font-weight:500">一個月 30 天，要做幾次「吃藥這件事」？</h3>
+    <div class="row">
+      <div class="chips" role="group" aria-label="切換顯示">
+        <button class="chip" id="c-oral" aria-pressed="true" type="button">吃藥</button>
+        <button class="chip" id="c-lai" aria-pressed="false" type="button">長效針</button>
+      </div>
+    </div>
+    <div class="cal" id="cal" aria-live="polite"></div>
+
+    <h3>生活上的改變</h3>
+    <ul class="life">
+      <li>出門旅行、過夜，不用擔心忘記帶藥。</li>
+      <li>早上忙亂的時候，不會因為漏吃而心裡不安。</li>
+      <li>不必在同事或朋友面前拿出藥來吃。</li>
+      <li>家人不用每天提醒、確認您吃藥了沒，彼此壓力都小一點。</li>
+    </ul>
+    <p class="note">長效針取代的是「抗精神病藥」。如果您還有吃其他的藥（例如助眠、情緒或身體疾病的藥），要不要調整，請和醫師討論，不要自己停藥。</p>
   </section>
 
   <!-- 打針那天 -->
